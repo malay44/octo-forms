@@ -1,5 +1,7 @@
 "use client";
 
+import { FormField } from "@/interfaces/formField";
+import AdvancedOptionsPopup from "./AdvanceOptionsPopUp";
 import { Button } from "./ui/button";
 import { Checkbox } from "./ui/checkbox";
 import { Input } from "./ui/input";
@@ -24,15 +26,6 @@ import {
 
 import { useState } from "react";
 
-type typeOptions =
-  | "text"
-  | "para"
-  | "multi"
-  | "checkbox"
-  | "dropdown"
-  | "DatePicker"
-  | "FileUpload";
-
 const typeOptionsFields = [
   "text",
   "para",
@@ -43,19 +36,13 @@ const typeOptionsFields = [
   "FileUpload",
 ];
 
-export interface FormField {
-  label: string;
-  key: string;
-  type: typeOptions;
-  required: boolean;
-}
-
 const initialFormFields: FormField[] = [
   {
     label: "First Name",
     key: "first_name",
-    type: "text",
+    type: "multi",
     required: true,
+    options: ["Option 1", "Option 2", "Option 3"],
   },
   {
     label: "Last Name",
@@ -175,7 +162,7 @@ export default function FormBuilder() {
                   </Button>
                 </TableCell>
                 <TableCell>
-                  <Button>Advance</Button>
+                  <AdvancedOptionsPopup value={field} />
                 </TableCell>
               </TableRow>
             ))}
