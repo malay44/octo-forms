@@ -92,6 +92,11 @@ export default function FormBuilder() {
     console.log("Saved Form Fields:", formFields);
   };
 
+  const handlePreview = () => {
+    window.localStorage.setItem("formFields", JSON.stringify(formFields));
+    window.open("/preview", "_blank");
+  };
+
   return (
     <div className="flex flex-col w-full items-center">
       <div className="flex gap-4 w-5/6">
@@ -177,6 +182,11 @@ export default function FormBuilder() {
               <TableCell colSpan={3} align="right">
                 <Button className="w-28" onClick={handleAddField}>
                   Add Field
+                </Button>
+              </TableCell>
+              <TableCell colSpan={3}>
+                <Button className="w-28" onClick={handlePreview}>
+                  Preivew
                 </Button>
               </TableCell>
             </TableRow>
