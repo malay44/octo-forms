@@ -23,9 +23,9 @@ export default function Page() {
     }
   }, []);
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="text-3xl font-bold mt-4">Form Preview</h1>
-      <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col items-center bg-secondary mx-auto w-3/6 p-6">
+      <h1 className="text-3xl font-bold my-4">Form Preview</h1>
+      <div className="flex flex-col w-full">
         {formFields.map((field, index) => {
           if (field.type === "text") {
             return (
